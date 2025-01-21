@@ -11586,14 +11586,13 @@ Size _getTextWidgetWidth(
     String text, double height, double width, BuildContext context,
     {TextStyle? style}) {
   /// Create new text with it style.
-  final Widget richTextWidget = Text(
-    text,
-    style: style,
+  final Widget richTextWidget = RichText(
+    text: TextSpan(text: text, style: style),
     maxLines: 1,
     softWrap: false,
     textDirection: TextDirection.ltr,
     textAlign: TextAlign.left,
-  ).build(context);
+  );
 
   RenderParagraph? renderObject;
   if (richTextWidget is! RichText) {
